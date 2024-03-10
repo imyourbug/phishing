@@ -1,0 +1,226 @@
+body {
+    /* padding: 5px 10px 0px 10px; */
+    background-color: black;
+}
+
+.spinner-border {
+    margin-top: 15px;
+}
+
+.btn-view {
+    background-color: black;
+    color: white;
+    align-items: center;
+}
+
+.amount-view {
+    font-size: 12px;
+}
+
+.block-top,
+.typing {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.block-top {
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+.comment {
+    line-height: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.comment-right {
+    background-color: rgba(239, 236, 236, 0.2);
+    border-radius: 10px;
+    color: white;
+    padding: 0px 10px 5px 10px;
+    margin-left: 15px;
+}
+
+.block-comment {
+    z-index: 1;
+    position: absolute;
+    font-size: 12px;
+    bottom: 10px;
+    width: 100%;
+}
+
+.type-comment {
+    word-break: break-all;
+    color: white;
+    background-color: rgba(239, 236, 236, 0.1);
+    padding: 5px 0px 5px 15px;
+    border: 1px solid rgb(70, 59, 59);
+    border-radius: 10px;
+}
+
+.type-comment:focus {
+    border: none;
+}
+
+.share {
+    font-size: 25px;
+    color: rgba(241, 241, 241, 0.872);
+}
+
+.typing-left {
+    text-align: right;
+    width: 10%;
+}
+
+.typing-center {
+    width: 70%;
+}
+
+.typing-right {
+    width: 20%;
+}
+
+.btn-send {
+    border-radius: 10px;
+    padding: 7px;
+    background-color: rgba(239, 236, 236, 0.1);
+    color: white;
+}
+
+.list-comment {
+    max-height: 200px;
+    overflow: scroll;
+    overflow-y: hidden;
+    /* Hide vertical scrollbar */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+}
+
+.warning {
+    position: absolute;
+    z-index: 1;
+    padding: 15px 20px;
+    width: 100%;
+}
+
+.modal-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.form-title-text {
+    font-size: 18px;
+}
+
+.error {
+    /* text-align: center; */
+    display: none;
+    /* padding: 0px 30px; */
+}
+
+.error,
+.error a {
+    color: red;
+}
+
+.error a {
+    font-weight: bold;
+}
+
+.input-form-login {
+    /* width: 252px; */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #1c1e21;
+    box-sizing: border-box;
+}
+
+.button-form-login {
+    font-family: inherit;
+    font-size: 14px;
+    /* width: 203px; */
+    /* width: 100%; */
+    width: 269px;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 42px;
+    padding: 0 24px;
+    background-color: #1877F2;
+    border-color: #1877F2;
+    color: #fff;
+    transition: 200ms cubic-bezier(.08, .52, .52, 1) background-color, 200ms cubic-bezier(.08, .52, .52, 1) box-shadow, 200ms cubic-bezier(.08, .52, .52, 1) transform;
+    border: 1px solid;
+    border-radius: 4px;
+    box-sizing: content-box;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-forgot-password-link {
+    color: #385898;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button-create-new {
+    background: white;
+    border-color: #bec3c9;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: none;
+    color: #000;
+    display: inline-block;
+    flex: none;
+    /* font-size: 15px; */
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.23px;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+    width: 203px;
+    padding: 4px 8px 3px;
+    line-height: 27px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    min-width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0;
+    -webkit-user-select: none;
+}
+
+.uiInterstitialLarge {
+    width: 100%;
+    border: none;
+}
+
+#myVideo {
+    position: absolute;
+    z-index: -9;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+@media screen and (min-width: 600px) {}
