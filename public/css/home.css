@@ -1,6 +1,7 @@
 body {
     /* padding: 5px 10px 0px 10px; */
     background-color: black;
+    /*position: absolute;*/
 }
 
 .spinner-border {
@@ -27,7 +28,23 @@ body {
 .block-top {
     width: 100%;
     position: absolute;
-    z-index: 0;
+    z-index: 1;
+}
+
+
+.block-comment {
+    position: absolute;
+    z-index: -1;
+    font-size: 12px;
+    bottom: 10px;
+    width: 100%;
+}
+
+.warning {
+    position: absolute;
+    z-index: 999;
+    padding: 15px 20px;
+    width: 100%;
 }
 
 .comment {
@@ -42,14 +59,6 @@ body {
     color: white;
     padding: 0px 10px 5px 10px;
     margin-left: 15px;
-}
-
-.block-comment {
-    z-index: 1;
-    position: absolute;
-    font-size: 12px;
-    bottom: 10px;
-    width: 100%;
 }
 
 .type-comment {
@@ -97,13 +106,6 @@ body {
     /* Hide vertical scrollbar */
     overflow-x: hidden;
     /* Hide horizontal scrollbar */
-}
-
-.warning {
-    position: absolute;
-    z-index: 1;
-    padding: 15px 20px;
-    width: 100%;
 }
 
 .modal-content {
@@ -216,11 +218,15 @@ body {
 
 #myVideo {
     position: absolute;
-    z-index: -9;
+    z-index: -9999999;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+}
+
+.is-invalid{
+    border-color: #E11D48 !important;
 }
 
 @media screen and (min-width: 600px) {}

