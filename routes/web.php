@@ -27,7 +27,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/link', function () {
-    Artisan::call('storage:link');
+    return Artisan::call('storage:link');
+});
+
+Route::get('/optimize', function () {
+    return Artisan::call('optimize:clear');
 });
 
 $settings = null;

