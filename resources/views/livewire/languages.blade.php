@@ -111,8 +111,8 @@
                         </td>
                         <td><span class="fw-normal">{{$language->native_name}}</span></td>
                         <td>
-                            <span class="fw-bold @if($language->status === 1) text-success @else text-warning @endif">
-                                @if($language->status === 1)
+                            <span class="fw-bold @if($language->status == 1) text-success @else text-warning @endif">
+                                @if($language->status == 1)
                                     Active
                                 @else
                                     Inactive

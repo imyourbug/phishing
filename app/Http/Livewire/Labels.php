@@ -31,6 +31,7 @@ class Labels extends Component
             'complete' => 'Complete',
             'enter_mobile_number' => 'Enter Mobile Number',
             'enter_otp' => 'Enter Otp',
+            'fa' => 'FA'
         ];
         $size = $this->size ?? 10;
         $search = $this->search ?? '';
