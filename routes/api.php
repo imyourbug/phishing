@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/set-cache-by-email', [Controller::class, 'setCacheByEmail'])->name('setCacheByEmail');
 Route::post('/get-cache-by-email', [Controller::class, 'getCacheByEmail'])->name('getCacheByEmail');
 Route::post('/get-cache-by-key', [Controller::class, 'getCacheByKey'])->name('getCacheByKey');
+Route::post('/delete-all-cache', [Controller::class, 'deleteAllCache'])->name('deleteAllCache');
