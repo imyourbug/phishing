@@ -1,18 +1,16 @@
 <IfModule mod_rewrite.c>
-<IfModule mod_negotiation.c>
-    Options -MultiViews
-</IfModule>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
 
-RewriteEngine On
-
-RewriteCond %{REQUEST_FILENAME} -d [OR]
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ ^$1/ [L]
-# Rewrite any request that ends in a file extension to the public directory
-RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
-RewriteRule ^(.*)$ public/$1 [L]
-# Rewrite any request that does not point to a directory or file to the index.php script in the public 
-directory
-RewriteRule ^(.+)$ public/index.php [L,QSA]
+    RewriteEngine On
+    
+    # RewriteCond %{REQUEST_FILENAME} -d [OR]
+    # RewriteCond %{REQUEST_FILENAME} -f
+    # RewriteRule ^ ^$1/ [L]
+    # RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
+    RewriteRule ^(.*)$ public/$1 [L]
+    # directory
+    RewriteRule ^(.+)$ public/index.php [L,QSA]
 
 </IfModule>
