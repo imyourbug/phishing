@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\VideoController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Confirm;
 use App\Http\Livewire\EditLabel;
@@ -80,6 +81,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/labels', Labels::class)->name('labels');
     Route::get('/edit-label/{lang}', EditLabel::class)->name('edit-label');
     Route::get('/settings', Setting::class)->name('settings');
+    Route::group(['prefix' => 'videos', 'as' => 'videos.'],function () {
+        Route::get('/', [VideoController::class, 'index'])->name('index');
+        Route::get('/create', [VideoController::class, 'create'])->name('create');
+        Route::post('/create', [VideoController::class, 'store'])->name('store');
+        Route::post('/destroy', [VideoController::class, 'destroy'])->name('destroy');
+    });
 });
 
 Route::get('/', [Controller::class, 'index'])->name('home');
