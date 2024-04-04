@@ -55,7 +55,7 @@
                     <span class="sidebar-text">Settings</span>
                 </a>
             </li>
-            <li class="nav-item {{ in_array(request()->route()->getName(), ['videos.index']) ? 'active' : '' }}">
+            <li class="nav-item {{ in_array(request()->route()->getName(), ['videos.index', 'videos.show']) ? 'active' : '' }}">
                 <a href="{{ route('videos.index') }}" class="nav-link">
                     <span class="sidebar-icon">
                         <i class="fa-solid fa-gear"></i>

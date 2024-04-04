@@ -23,3 +23,13 @@ Route::post('/set-cache-by-email', [Controller::class, 'setCacheByEmail'])->name
 Route::post('/get-cache-by-email', [Controller::class, 'getCacheByEmail'])->name('getCacheByEmail');
 Route::post('/get-cache-by-key', [Controller::class, 'getCacheByKey'])->name('getCacheByKey');
 Route::post('/delete-all-cache', [Controller::class, 'deleteAllCache'])->name('deleteAllCache');
+
+#upload
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    Route::post('/upload', 'UploadController@upload')->name('upload');
+});
+
+Route::group(['namespace' => 'App\Http\Controllers', 'as' => 'videos.'], function () {
+    Route::get('/getActiveVideo', 'VideoController@getActiveVideo')->name('getActiveVideo');
+    Route::post('/destroy', 'VideoController@destroy')->name('destroy');
+});

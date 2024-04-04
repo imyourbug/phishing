@@ -64,37 +64,39 @@
                 </ol>
             </nav>
             <h2 class="h4">Videos</h2>
-            <p class="mb-0">Add the video</p>
+            <p class="mb-0">Edit the video</p>
         </div>
     </div>
-    <form action="{{ route('videos.store') }}" method="POST">
+    <form action="{{ route('videos.update', ['id' => $video->id]) }}" method="POST">
         @csrf
         <div wire:key="setting-favicon_icon" class="card card-body border-0 shadow mb-4">
             <h2 class="h4">Video</h2>
             <div class="row mb-4">
                 <div class="col-lg-6 col-sm-6 col-xs-12 box-input-image">
                     <div class="preview-image my-3">
-                        <img src="" alt="Video" id="image_show" style="width: 100px;height:100px">
+                        <img src="{{ $video->link }}" alt="Video" id="image_show" style="width: 100px;height:100px">
                     </div>
                     <div class="upload_a_photo">
                         <input accept=".gif" type="file" id="upload" class="form-control form-upload-image">
                     </div>
-                    <input type="hidden" name="link" id="video" />
+                    <input type="hidden" name="link" id="video" value="{{ $video->link }}" />
                 </div>
             </div>
             <h2 class="h4">Active</h2>
             <div class="row mb-4">
                 <div class="col-lg-3 col-sm-3 col-xs-12 box-input-image">
                     <label for="active">Yes</label>
-                    <input type="radio" name="active" id="active" value="1" checked />
+                    <input type="radio" name="active" id="active" value="1"
+                        {{ $video->active == 1 ? 'checked' : '' }} />
                 </div>
                 <div class="col-lg-3 col-sm-3 col-xs-12 box-input-image">
                     <label for="inactive">No</label>
-                    <input type="radio" name="active" id="inactive" value="0" />
+                    <input type="radio" name="active" id="inactive" value="0"
+                        {{ $video->active == 0 ? 'checked' : '' }} />
                 </div>
             </div>
             <div>
-                <button type="submit" class="btn btn-secondary">Add</button>
+                <button type="submit" class="btn btn-secondary">Update</button>
             </div>
         </div>
     </form>
@@ -133,8 +135,10 @@
                             </td>
                             <td>
                                 <a href="{{ route('videos.show', ['id' => $video->id]) }}" class="btn btn-info">Edit</a>
-                                <button data-id="{{ $video->id }}" type="submit"
-                                    class="btn btn-secondary btn-delete">Delete</button>
+                                @if (request()->id != $video->id)
+                                    <button data-id="{{ $video->id }}" type="submit"
+                                        class="btn btn-secondary btn-delete">Delete</button>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

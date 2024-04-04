@@ -85,7 +85,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [VideoController::class, 'index'])->name('index');
         Route::get('/create', [VideoController::class, 'create'])->name('create');
         Route::post('/create', [VideoController::class, 'store'])->name('store');
-        Route::post('/destroy', [VideoController::class, 'destroy'])->name('destroy');
+        Route::get('/edit/{id}', [VideoController::class, 'show'])->name('show');
+        Route::post('/update', [VideoController::class, 'update'])->name('update');
     });
 });
 
