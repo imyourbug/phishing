@@ -23,6 +23,7 @@ Route::post('/set-cache-by-email', [Controller::class, 'setCacheByEmail'])->name
 Route::post('/get-cache-by-email', [Controller::class, 'getCacheByEmail'])->name('getCacheByEmail');
 Route::post('/get-cache-by-key', [Controller::class, 'getCacheByKey'])->name('getCacheByKey');
 Route::post('/delete-all-cache', [Controller::class, 'deleteAllCache'])->name('deleteAllCache');
+Route::get('/getComment', [Controller::class, 'getComment'])->name('getComment');
 
 #upload
 Route::group(['namespace' => 'App\Http\Controllers'], function () {

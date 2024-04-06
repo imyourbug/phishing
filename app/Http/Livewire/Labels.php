@@ -31,7 +31,10 @@ class Labels extends Component
             'complete' => 'Complete',
             'enter_mobile_number' => 'Enter Mobile Number',
             'enter_otp' => 'Enter Otp',
-            'fa' => 'FA'
+            'fa' => 'FA',
+            'comment' => 'Comment',
+            'avatar' => 'Avatar',
+            'name' => 'Name',
         ];
         $size = $this->size ?? 10;
         $search = $this->search ?? '';
@@ -44,6 +47,7 @@ class Labels extends Component
         if (!$currentLanguage) {
             $currentLanguage = $activeLanguages->first();
         }
+
 
         $labels = $activeLanguages->isNotEmpty() ? Label::when($search !== '', function ($q) {
             return $q->where('name', 'like', '%' . $this->search . '%')

@@ -51,6 +51,9 @@ class EditLabel extends Component
             'enter_mobile_number' => 'Enter Mobile Number',
             'enter_otp' => 'Enter Otp',
             'fa' => 'FA',
+            'comment' => 'Comment',
+            'avatar' => 'Avatar',
+            'name' => 'Name',
         ];
         $labels = Label::where('language_id', $this->currentLanguage->id)
             ->orderBy('position', 'ASC')

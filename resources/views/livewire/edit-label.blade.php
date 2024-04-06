@@ -1,10 +1,10 @@
 @push('icons')
-    <link rel="apple-touch-icon" href="{{asset('assets/img/language-svgrepo-com.svg')}}" sizes="180x180">
-    <link rel="icon" href="{{asset('assets/img/language-svgrepo-com.svg')}}" sizes="32x32">
-    <link rel="icon" href="{{asset('assets/img/language-svgrepo-com.svg')}}" sizes="16x16">
-    <link rel="icon" href="{{asset('assets/img/language-svgrepo-com.svg')}}" sizes="16x16">
-    <link rel="mask-icon" href="{{asset('assets/img/language-svgrepo-com.svg')}}">
-    <link rel="icon" href="{{asset('assets/img/language-svgrepo-com.svg')}}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/img/language-svgrepo-com.svg') }}" sizes="180x180">
+    <link rel="icon" href="{{ asset('assets/img/language-svgrepo-com.svg') }}" sizes="32x32">
+    <link rel="icon" href="{{ asset('assets/img/language-svgrepo-com.svg') }}" sizes="16x16">
+    <link rel="icon" href="{{ asset('assets/img/language-svgrepo-com.svg') }}" sizes="16x16">
+    <link rel="mask-icon" href="{{ asset('assets/img/language-svgrepo-com.svg') }}">
+    <link rel="icon" href="{{ asset('assets/img/language-svgrepo-com.svg') }}">
 @endpush
 @push('styles')
     <link type="text/css" href="/css/volt.css" rel="stylesheet">
@@ -18,9 +18,10 @@
                     <li class="breadcrumb-item">
                         <a href="#">
                             <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                 xmlns="http://www.w3.org/2000/svg">
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                </path>
                             </svg>
                         </a>
                     </li>
@@ -34,10 +35,10 @@
 
     <div class="card card-body border-0 shadow mb-4">
         <div>
-            @foreach($languages as $language)
-                <a href="{{route('edit-label', ['lang' => $language->code])}}"
-                   class="mb-2 btn @if($language->id === $currentLanguage->id) btn-secondary @else btn-gray-50 @endif">
-                    {{$language->name}}
+            @foreach ($languages as $language)
+                <a href="{{ route('edit-label', ['lang' => $language->code]) }}"
+                    class="mb-2 btn @if ($language->id === $currentLanguage->id) btn-secondary @else btn-gray-50 @endif">
+                    {{ $language->name }}
                 </a>
             @endforeach
         </div>
@@ -50,16 +51,17 @@
     @endif
 
     <form wire:submit.prevent="edit" action="#" method="POST">
-        @foreach($labels as $key => $label)
+        @foreach ($labels as $key => $label)
             <div wire:key="edit-label-{{ $key }}" class="card card-body border-0 shadow mb-4">
-                <h2 class="h4">{{$positions[$key]}}</h2>
+                <h2 class="h4">{{ $positions[$key] }}</h2>
                 <div class="row mb-4">
-                    @foreach($label as $item)
+                    @foreach ($label as $item)
                         <div class="col-lg-4 col-sm-6 col-xs-12">
                             <div class="mb-4">
-                                <input type="text" value="{{$item->name}}" class="form-control" wire:model="data.{{$item->position}}_{{$item->code}}"
-                                       aria-describedby="emailHelp">
-                                <small class="form-text text-muted">{{$item->description}}</small>
+                                <input type="text" value="{{ $item->name }}" class="form-control"
+                                    wire:model="data.{{ $item->position }}_{{ $item->code }}"
+                                    aria-describedby="emailHelp">
+                                <small class="form-text text-muted">{{ $item->description }}</small>
                             </div>
                         </div>
                     @endforeach

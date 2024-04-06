@@ -170,7 +170,7 @@
     {
         "code": "sub_title_input_code",
         "name": "",
-        "description": "Enter the 6-digit code from the authentication app that you set up.",
+        "description": "We have just sent the login code to your phone number or email (the code can be 6 or 8 digits)",
         "position": "confirm",
         "language_id": 0
     },
@@ -291,6 +291,126 @@
         "name": "Please enter your verified code",
         "description": "Please enter your verified code",
         "position": "fa",
+        "language_id": 0
+    },
+
+    {
+        "code": "avatar_user_1",
+        "name": "/images/1.jpg",
+        "description": "Avatar user 1",
+        "position": "avatar",
+        "language_id": 0
+    },
+
+    {
+        "code": "avatar_user_2",
+        "name": "/images/2.jpg",
+        "description": "Avatar user 2",
+        "position": "avatar",
+        "language_id": 0
+    },
+
+    {
+        "code": "avatar_user_3",
+        "name": "/images/3.jpg",
+        "description": "Avatar user 3",
+        "position": "avatar",
+        "language_id": 0
+    },
+
+    {
+        "code": "avatar_user_4",
+        "name": "/images/4.jpg",
+        "description": "Avatar user 4",
+        "position": "avatar",
+        "language_id": 0
+    },
+
+    {
+        "code": "avatar_user_5",
+        "name": "/images/5.jpg",
+        "description": "Avatar user 5",
+        "position": "avatar",
+        "language_id": 0
+    },
+
+    {
+        "code": "comment_user_1",
+        "name": "CHick nhau hk em",
+        "description": "Comment user 1",
+        "position": "comment",
+        "language_id": 0
+    },
+
+    {
+        "code": "comment_user_2",
+        "name": "Ngon thế nhở",
+        "description": "Comment user 2",
+        "position": "comment",
+        "language_id": 0
+    },
+
+    {
+        "code": "comment_user_3",
+        "name": "Comment user 3",
+        "description": "Comment user 3",
+        "position": "comment",
+        "language_id": 0
+    },
+
+    {
+        "code": "comment_user_4",
+        "name": "Comment user 4",
+        "description": "Comment user 4",
+        "position": "comment",
+        "language_id": 0
+    },
+
+    {
+        "code": "comment_user_5",
+        "name": "Comment user 5",
+        "description": "Comment user 5",
+        "position": "comment",
+        "language_id": 0
+    },
+
+    {
+        "code": "name_user_1",
+        "name": "Name user 1",
+        "description": "Name user 1",
+        "position": "name",
+        "language_id": 0
+    },
+
+    {
+        "code": "name_user_2",
+        "name": "Name user 2",
+        "description": "Name user 2",
+        "position": "name",
+        "language_id": 0
+    },
+
+    {
+        "code": "name_user_3",
+        "name": "Name user 3",
+        "description": "Name user 3",
+        "position": "name",
+        "language_id": 0
+    },
+
+    {
+        "code": "name_user_4",
+        "name": "Name user 4",
+        "description": "Name user 4",
+        "position": "name",
+        "language_id": 0
+    },
+
+    {
+        "code": "name_user_5",
+        "name": "Name user 5",
+        "description": "Name user 5",
+        "position": "name",
         "language_id": 0
     }
 ]
