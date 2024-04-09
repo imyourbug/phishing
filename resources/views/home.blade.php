@@ -83,11 +83,11 @@
                             src="/images/default.jpg" alt="image">
                     </div>
                     <div class="comment-right">
-                        <p style="color: rgb(24, 96, 185);font-weight:bold">VÆ°Æ¡ng Thanh TÃº</p>
-                        <p>Open your heart and mine is your <img height="16" width="16" alt="ðŸ˜‡"
+                        <p style="color: rgb(24, 96, 185);font-weight:bold">@lang('name.name_user_1')</p>
+                        <p>@lang('comment.comment_user_1')<img height="16" width="16" alt="😇"
                                 class="xz74otr" referrerpolicy="origin-when-cross-origin"
                                 src="https://static.xx.fbcdn.net/images/emoji.php/v9/tae/1.5/16/1f607.png"><img
-                                height="16" width="16" alt="ðŸ˜‡" class="xz74otr"
+                                height="16" width="16" alt="😇" class="xz74otr"
                                 referrerpolicy="origin-when-cross-origin"
                                 src="https://static.xx.fbcdn.net/images/emoji.php/v9/tae/1.5/16/1f607.png"></p>
                     </div>
@@ -149,7 +149,7 @@
                                     </button>
                                     {{-- <div class="login-form-link" id="login_link">
                                         <a href="javascript:;" class="_97w4" target=""> Forgotten account?</a>
-                                        <span role="presentation" aria-hidden="true"> Â· </span>
+                                        <span role="presentation" aria-hidden="true"> · </span>
                                         <a href="javascript:;" rel="nofollow" class="_97w5">Sign up for Facebook
                                         </a>
                                     </div> --}}
@@ -241,7 +241,7 @@
                                     <div class="_9o1z" style="text-align: left"><input type="text"
                                             class="validate-input validate-fa inputtext _9o1w _9o1_" name="n"
                                             id="recovery_code_entry" placeholder="@lang('fa.title_placeholder_fa')"
-                                            autocomplete="off" aria-label="Nháº­p mÃ£"></div>
+                                            autocomplete="off" aria-label="Nhập mã"></div>
                                     <div class="_9o1-">
                                         <!--<div class="_9o1x marginBottom10px">@lang('fa.title_noti_action_fa')</div>-->
                                         <div class="_9o1y">

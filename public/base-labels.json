@@ -336,7 +336,7 @@
 
     {
         "code": "comment_user_1",
-        "name": "CHick nhau hk em",
+        "name": "Comment user 1",
         "description": "Comment user 1",
         "position": "comment",
         "language_id": 0
@@ -344,7 +344,7 @@
 
     {
         "code": "comment_user_2",
-        "name": "Ngon thế nhở",
+        "name": "Comment user 2",
         "description": "Comment user 2",
         "position": "comment",
         "language_id": 0

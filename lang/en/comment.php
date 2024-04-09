@@ -1,8 +1,8 @@
 <?php
 return [
-    "comment_user_1" => "Comment user 1",
-    "comment_user_2" => "Comment user 2",
-    "comment_user_3" => "Comment user 3",
-    "comment_user_4" => "Comment user 4",
-    "comment_user_5" => "Comment user 5"
+    "comment_user_5" => "So beautiful",
+    "comment_user_4" => "live too",
+    "comment_user_3" => "beautiful goods",
+    "comment_user_2" => "Candelario Schoen",
+    "comment_user_1" => "Addison Connelly"
 ];

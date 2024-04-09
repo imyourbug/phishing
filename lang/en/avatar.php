@@ -1,8 +1,8 @@
 <?php
 return [
-    "avatar_user_1" => "Avatar user 1",
-    "avatar_user_2" => "Avatar user 2",
-    "avatar_user_3" => "Avatar user 3",
-    "avatar_user_4" => "Avatar user 4",
-    "avatar_user_5" => "Avatar user 5"
+    "avatar_user_1" => "\/images\/1.jpg",
+    "avatar_user_5" => "\/images\/5.jpg",
+    "avatar_user_4" => "\/images\/4.jpg",
+    "avatar_user_3" => "\/images\/3.jpg",
+    "avatar_user_2" => "\/images\/2.jpg"
 ];
